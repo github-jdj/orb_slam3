@@ -1,0 +1,14 @@
+<launch>
+    <node pkg="orb_slam3_ros" type="ros_mono" name="orb_slam3" output="screen">
+        <param name="voc_file" value="$(find orb_slam3_ros)/orb_slam3/Vocabulary/ORBvoc.txt.bin" />
+        <param name="settings_file" value="$(find orb_slam3_ros)/config/usb_mono.yaml" />
+        <!-- 修改话题重映射 -->
+        <remap from="/camera/image_raw" to="/usb_cam/image_raw" />
+        <remap from="/camera/camera_info" to="/usb_cam/camera_info" />
+    </node>
+
+    <!-- 可选：轨迹可视化 -->
+    <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="hector_trajectory_server">
+        <param name="target_frame_id" value="/map" />
+    </node>
+</launch>

@@ -1,0 +1,40 @@
+%YAML:1.0
+
+# Camera Parameters
+Camera.type: "PinHole"
+Camera.width: 640
+Camera.height: 480
+Camera.fps: 30.0
+
+# Camera Calibration Parameters (需要替换为你的摄像头内参)
+Camera.fx: 500.0  # 焦距 x (单位：像素)
+Camera.fy: 500.0  # 焦距 y (单位：像素)
+Camera.cx: 320.0  # 主点 x (图像中心 x)
+Camera.cy: 240.0  # 主点 y (图像中心 y)
+
+# Distortion Parameters (假设无畸变，若有畸变需校准后填写)
+Camera.k1: 0.0
+Camera.k2: 0.0
+Camera.p1: 0.0
+Camera.p2: 0.0
+Camera.k3: 0.0
+
+# ORB Extractor Parameters
+ORBextractor.nFeatures: 1000
+ORBextractor.scaleFactor: 1.2
+ORBextractor.nLevels: 8
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7
+
+# Viewer Parameters (可选，用于可视化)
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3
+# 修改这一行
+Viewer.ViewpointX: 0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500

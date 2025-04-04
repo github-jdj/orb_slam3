@@ -1,0 +1,19 @@
+<launch>
+    <!-- 主节点 -->
+    <node name="orb_slam3" pkg="orb_slam3_ros" type="ros_mono" output="screen">
+        <!-- 指定ORB词汇表文件路径 -->
+        <param name="voc_file" value="$(find orb_slam3_ros)/orb_slam3/Vocabulary/ORBvoc.txt.bin" />
+        <!-- 指定相机设置文件路径，修改为新的yaml文件 -->
+        <param name="settings_file" value="$(find orb_slam3_ros)/config/phone_mono.yaml" />
+        <!-- 重映射话题，将/camera/image_raw作为输入 -->
+        <remap from="/camera/image_raw" to="/camera/image_raw" />
+        <!-- 若有相机信息话题，可进行重映射 -->
+        <remap from="/camera/camera_info" to="/camera/camera_info" />
+    </node>
+
+    <!-- 可选：轨迹可视化 -->
+    <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="hector_trajectory_server">
+        <!-- 设置目标坐标系 -->
+        <param name="target_frame_id" value="/map" />
+    </node>
+</launch>
